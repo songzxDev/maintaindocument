@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.cgztb.maintaindocument.dao.TabMaintainDocumentInvestmentMapper">
+	<resultMap id="BaseResultMap" type="cn.cgztb.maintaindocument.model.TabMaintainDocumentInvestment">
+		<id column="INVESTMENT_ID" property="investmentId" jdbcType="BIGINT" />
+		<result column="ENABLE_STATUS" property="enableStatus" jdbcType="CHAR" />
+		<result column="RESERVED_COLUMN1" property="reservedColumn1" jdbcType="VARCHAR" />
+		<result column="RESERVED_COLUMN2" property="reservedColumn2" jdbcType="VARCHAR" />
+		<result column="RESERVED_COLUMN3" property="reservedColumn3" jdbcType="VARCHAR" />
+		<result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+		<result column="MODIFY_DATE" property="modifyDate" jdbcType="TIMESTAMP" />
+		<result column="CONTRACT_CODE" property="contractCode" jdbcType="VARCHAR" />
+		<result column="CONTRACT_TYPE" property="contractType" jdbcType="VARCHAR" />
+		<result column="PROFESSION_TYPE" property="professionType" jdbcType="VARCHAR" />
+		<result column="DEPARTMENT" property="department" jdbcType="VARCHAR" />
+		<result column="CHUSHIJINGLI" property="chushijingli" jdbcType="VARCHAR" />
+		<result column="CHUSHIJINGLI_LOGIN_ID" property="chushijingliLoginId" jdbcType="VARCHAR" />
+		<result column="QUXIANKUAIJI" property="quxiankuaiji" jdbcType="VARCHAR" />
+		<result column="QUXIANKUAIJI_LOGIN_ID" property="quxiankuaijiLoginId" jdbcType="VARCHAR" />
+		<result column="BUMENFUZONGJINGLI" property="bumenfuzongjingli" jdbcType="VARCHAR" />
+		<result column="BUMENFUZONGJINGLI_LOGIN_ID" property="bumenfuzongjingliLoginId" jdbcType="VARCHAR" />
+		<result column="BUMENZONGJINGLI" property="bumenzongjingli" jdbcType="VARCHAR" />
+		<result column="BUMENZONGJINGLI_LOGIN_ID" property="bumenzongjingliLoginId" jdbcType="VARCHAR" />
+		<result column="ZHUANYEHUIQIANREN" property="zhuanyehuiqianren" jdbcType="VARCHAR" />
+		<result column="ZHUANYEHUIQIANREN_LOGIN_ID" property="zhuanyehuiqianrenLoginId" jdbcType="VARCHAR" />
+		<result column="ZHUANYEFUZEREN" property="zhuanyefuzeren" jdbcType="VARCHAR" />
+		<result column="ZHUANYEFUZEREN_LOGIN_ID" property="zhuanyefuzerenLoginId" jdbcType="VARCHAR" />
+		<result column="ZHUANYEXIANZONGJINGLI1" property="zhuanyexianzongjingli1" jdbcType="VARCHAR" />
+		<result column="ZHUANYEXIANZONGJINGLI1_LOGIN_ID" property="zhuanyexianzongjingli1LoginId" jdbcType="VARCHAR" />
+		<result column="ZHUANYEXIANZONGJINGLI2" property="zhuanyexianzongjingli2" jdbcType="VARCHAR" />
+		<result column="ZHUANYEXIANZONGJINGLI2_LOGIN_ID" property="zhuanyexianzongjingli2LoginId" jdbcType="VARCHAR" />
+		<result column="SHENGFENFUZONGJINGLI" property="shengfenfuzongjingli" jdbcType="VARCHAR" />
+		<result column="SHENGFENFUZONGJINGLI_LOGIN_ID" property="shengfenfuzongjingliLoginId" jdbcType="VARCHAR" />
+		<result column="SHENGFENZONGJINGLI" property="shengfenzongjingli" jdbcType="VARCHAR" />
+		<result column="SHENGFENZONGJINGLI_LOGIN_ID" property="shengfenzongjingliLoginId" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		INVESTMENT_ID, ENABLE_STATUS, RESERVED_COLUMN1, RESERVED_COLUMN2, RESERVED_COLUMN3,
+		CREATE_DATE, MODIFY_DATE, CONTRACT_CODE, CONTRACT_TYPE, PROFESSION_TYPE, DEPARTMENT,
+		CHUSHIJINGLI, CHUSHIJINGLI_LOGIN_ID, QUXIANKUAIJI, QUXIANKUAIJI_LOGIN_ID, BUMENFUZONGJINGLI,
+		BUMENFUZONGJINGLI_LOGIN_ID, BUMENZONGJINGLI, BUMENZONGJINGLI_LOGIN_ID, ZHUANYEHUIQIANREN,
+		ZHUANYEHUIQIANREN_LOGIN_ID, ZHUANYEFUZEREN, ZHUANYEFUZEREN_LOGIN_ID, ZHUANYEXIANZONGJINGLI1,
+		ZHUANYEXIANZONGJINGLI1_LOGIN_ID, ZHUANYEXIANZONGJINGLI2, ZHUANYEXIANZONGJINGLI2_LOGIN_ID,
+		SHENGFENFUZONGJINGLI, SHENGFENFUZONGJINGLI_LOGIN_ID, SHENGFENZONGJINGLI, SHENGFENZONGJINGLI_LOGIN_ID
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from maintain_document_investment
+		where INVESTMENT_ID = #{investmentId,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from maintain_document_investment
+		where INVESTMENT_ID = #{investmentId,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="cn.cgztb.maintaindocument.model.TabMaintainDocumentInvestment">
+		insert into maintain_document_investment (INVESTMENT_ID, ENABLE_STATUS, RESERVED_COLUMN1,
+		RESERVED_COLUMN2, RESERVED_COLUMN3, CREATE_DATE,
+		MODIFY_DATE, CONTRACT_CODE, CONTRACT_TYPE,
+		PROFESSION_TYPE, DEPARTMENT, CHUSHIJINGLI,
+		CHUSHIJINGLI_LOGIN_ID, QUXIANKUAIJI, QUXIANKUAIJI_LOGIN_ID,
+		BUMENFUZONGJINGLI, BUMENFUZONGJINGLI_LOGIN_ID,
+		BUMENZONGJINGLI, BUMENZONGJINGLI_LOGIN_ID,
+		ZHUANYEHUIQIANREN, ZHUANYEHUIQIANREN_LOGIN_ID,
+		ZHUANYEFUZEREN, ZHUANYEFUZEREN_LOGIN_ID,
+		ZHUANYEXIANZONGJINGLI1, ZHUANYEXIANZONGJINGLI1_LOGIN_ID,
+		ZHUANYEXIANZONGJINGLI2, ZHUANYEXIANZONGJINGLI2_LOGIN_ID,
+		SHENGFENFUZONGJINGLI, SHENGFENFUZONGJINGLI_LOGIN_ID,
+		SHENGFENZONGJINGLI, SHENGFENZONGJINGLI_LOGIN_ID
+		)
+		values (#{investmentId,jdbcType=BIGINT}, #{enableStatus,jdbcType=CHAR}, #{reservedColumn1,jdbcType=VARCHAR},
+		#{reservedColumn2,jdbcType=VARCHAR}, #{reservedColumn3,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+		#{modifyDate,jdbcType=TIMESTAMP}, #{contractCode,jdbcType=VARCHAR},
+		#{contractType,jdbcType=VARCHAR},
+		#{professionType,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{chushijingli,jdbcType=VARCHAR},
+		#{chushijingliLoginId,jdbcType=VARCHAR}, #{quxiankuaiji,jdbcType=VARCHAR}, #{quxiankuaijiLoginId,jdbcType=VARCHAR},
+		#{bumenfuzongjingli,jdbcType=VARCHAR}, #{bumenfuzongjingliLoginId,jdbcType=VARCHAR},
+		#{bumenzongjingli,jdbcType=VARCHAR}, #{bumenzongjingliLoginId,jdbcType=VARCHAR},
+		#{zhuanyehuiqianren,jdbcType=VARCHAR}, #{zhuanyehuiqianrenLoginId,jdbcType=VARCHAR},
+		#{zhuanyefuzeren,jdbcType=VARCHAR}, #{zhuanyefuzerenLoginId,jdbcType=VARCHAR},
+		#{zhuanyexianzongjingli1,jdbcType=VARCHAR}, #{zhuanyexianzongjingli1LoginId,jdbcType=VARCHAR},
+		#{zhuanyexianzongjingli2,jdbcType=VARCHAR}, #{zhuanyexianzongjingli2LoginId,jdbcType=VARCHAR},
+		#{shengfenfuzongjingli,jdbcType=VARCHAR}, #{shengfenfuzongjingliLoginId,jdbcType=VARCHAR},
+		#{shengfenzongjingli,jdbcType=VARCHAR}, #{shengfenzongjingliLoginId,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="cn.cgztb.maintaindocument.model.TabMaintainDocumentInvestment">
+		insert into maintain_document_investment
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="investmentId != null">
+				INVESTMENT_ID,
+			</if>
+			<if test="enableStatus != null">
+				ENABLE_STATUS,
+			</if>
+			<if test="reservedColumn1 != null">
+				RESERVED_COLUMN1,
+			</if>
+			<if test="reservedColumn2 != null">
+				RESERVED_COLUMN2,
+			</if>
+			<if test="reservedColumn3 != null">
+				RESERVED_COLUMN3,
+			</if>
+			<if test="createDate != null">
+				CREATE_DATE,
+			</if>
+			<if test="modifyDate != null">
+				MODIFY_DATE,
+			</if>
+			<if test="contractCode != null">
+				CONTRACT_CODE,
+			</if>
+			<if test="contractType != null">
+				CONTRACT_TYPE,
+			</if>
+			<if test="professionType != null">
+				PROFESSION_TYPE,
+			</if>
+			<if test="department != null">
+				DEPARTMENT,
+			</if>
+			<if test="chushijingli != null">
+				CHUSHIJINGLI,
+			</if>
+			<if test="chushijingliLoginId != null">
+				CHUSHIJINGLI_LOGIN_ID,
+			</if>
+			<if test="quxiankuaiji != null">
+				QUXIANKUAIJI,
+			</if>
+			<if test="quxiankuaijiLoginId != null">
+				QUXIANKUAIJI_LOGIN_ID,
+			</if>
+			<if test="bumenfuzongjingli != null">
+				BUMENFUZONGJINGLI,
+			</if>
+			<if test="bumenfuzongjingliLoginId != null">
+				BUMENFUZONGJINGLI_LOGIN_ID,
+			</if>
+			<if test="bumenzongjingli != null">
+				BUMENZONGJINGLI,
+			</if>
+			<if test="bumenzongjingliLoginId != null">
+				BUMENZONGJINGLI_LOGIN_ID,
+			</if>
+			<if test="zhuanyehuiqianren != null">
+				ZHUANYEHUIQIANREN,
+			</if>
+			<if test="zhuanyehuiqianrenLoginId != null">
+				ZHUANYEHUIQIANREN_LOGIN_ID,
+			</if>
+			<if test="zhuanyefuzeren != null">
+				ZHUANYEFUZEREN,
+			</if>
+			<if test="zhuanyefuzerenLoginId != null">
+				ZHUANYEFUZEREN_LOGIN_ID,
+			</if>
+			<if test="zhuanyexianzongjingli1 != null">
+				ZHUANYEXIANZONGJINGLI1,
+			</if>
+			<if test="zhuanyexianzongjingli1LoginId != null">
+				ZHUANYEXIANZONGJINGLI1_LOGIN_ID,
+			</if>
+			<if test="zhuanyexianzongjingli2 != null">
+				ZHUANYEXIANZONGJINGLI2,
+			</if>
+			<if test="zhuanyexianzongjingli2LoginId != null">
+				ZHUANYEXIANZONGJINGLI2_LOGIN_ID,
+			</if>
+			<if test="shengfenfuzongjingli != null">
+				SHENGFENFUZONGJINGLI,
+			</if>
+			<if test="shengfenfuzongjingliLoginId != null">
+				SHENGFENFUZONGJINGLI_LOGIN_ID,
+			</if>
+			<if test="shengfenzongjingli != null">
+				SHENGFENZONGJINGLI,
+			</if>
+			<if test="shengfenzongjingliLoginId != null">
+				SHENGFENZONGJINGLI_LOGIN_ID,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="investmentId != null">
+				#{investmentId,jdbcType=BIGINT},
+			</if>
+			<if test="enableStatus != null">
+				#{enableStatus,jdbcType=CHAR},
+			</if>
+			<if test="reservedColumn1 != null">
+				#{reservedColumn1,jdbcType=VARCHAR},
+			</if>
+			<if test="reservedColumn2 != null">
+				#{reservedColumn2,jdbcType=VARCHAR},
+			</if>
+			<if test="reservedColumn3 != null">
+				#{reservedColumn3,jdbcType=VARCHAR},
+			</if>
+			<if test="createDate != null">
+				#{createDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifyDate != null">
+				#{modifyDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="contractCode != null">
+				#{contractCode,jdbcType=VARCHAR},
+			</if>
+			<if test="contractType != null">
+				#{contractType,jdbcType=VARCHAR},
+			</if>
+			<if test="professionType != null">
+				#{professionType,jdbcType=VARCHAR},
+			</if>
+			<if test="department != null">
+				#{department,jdbcType=VARCHAR},
+			</if>
+			<if test="chushijingli != null">
+				#{chushijingli,jdbcType=VARCHAR},
+			</if>
+			<if test="chushijingliLoginId != null">
+				#{chushijingliLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="quxiankuaiji != null">
+				#{quxiankuaiji,jdbcType=VARCHAR},
+			</if>
+			<if test="quxiankuaijiLoginId != null">
+				#{quxiankuaijiLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="bumenfuzongjingli != null">
+				#{bumenfuzongjingli,jdbcType=VARCHAR},
+			</if>
+			<if test="bumenfuzongjingliLoginId != null">
+				#{bumenfuzongjingliLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="bumenzongjingli != null">
+				#{bumenzongjingli,jdbcType=VARCHAR},
+			</if>
+			<if test="bumenzongjingliLoginId != null">
+				#{bumenzongjingliLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyehuiqianren != null">
+				#{zhuanyehuiqianren,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyehuiqianrenLoginId != null">
+				#{zhuanyehuiqianrenLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyefuzeren != null">
+				#{zhuanyefuzeren,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyefuzerenLoginId != null">
+				#{zhuanyefuzerenLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyexianzongjingli1 != null">
+				#{zhuanyexianzongjingli1,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyexianzongjingli1LoginId != null">
+				#{zhuanyexianzongjingli1LoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyexianzongjingli2 != null">
+				#{zhuanyexianzongjingli2,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyexianzongjingli2LoginId != null">
+				#{zhuanyexianzongjingli2LoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="shengfenfuzongjingli != null">
+				#{shengfenfuzongjingli,jdbcType=VARCHAR},
+			</if>
+			<if test="shengfenfuzongjingliLoginId != null">
+				#{shengfenfuzongjingliLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="shengfenzongjingli != null">
+				#{shengfenzongjingli,jdbcType=VARCHAR},
+			</if>
+			<if test="shengfenzongjingliLoginId != null">
+				#{shengfenzongjingliLoginId,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="cn.cgztb.maintaindocument.model.TabMaintainDocumentInvestment">
+		update maintain_document_investment
+		<set>
+			<if test="enableStatus != null">
+				ENABLE_STATUS = #{enableStatus,jdbcType=CHAR},
+			</if>
+			<if test="reservedColumn1 != null">
+				RESERVED_COLUMN1 = #{reservedColumn1,jdbcType=VARCHAR},
+			</if>
+			<if test="reservedColumn2 != null">
+				RESERVED_COLUMN2 = #{reservedColumn2,jdbcType=VARCHAR},
+			</if>
+			<if test="reservedColumn3 != null">
+				RESERVED_COLUMN3 = #{reservedColumn3,jdbcType=VARCHAR},
+			</if>
+			<if test="createDate != null">
+				CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifyDate != null">
+				MODIFY_DATE = #{modifyDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="contractCode != null">
+				CONTRACT_CODE = #{contractCode,jdbcType=VARCHAR},
+			</if>
+			<if test="contractType != null">
+				CONTRACT_TYPE = #{contractType,jdbcType=VARCHAR},
+			</if>
+			<if test="professionType != null">
+				PROFESSION_TYPE = #{professionType,jdbcType=VARCHAR},
+			</if>
+			<if test="department != null">
+				DEPARTMENT = #{department,jdbcType=VARCHAR},
+			</if>
+			<if test="chushijingli != null">
+				CHUSHIJINGLI = #{chushijingli,jdbcType=VARCHAR},
+			</if>
+			<if test="chushijingliLoginId != null">
+				CHUSHIJINGLI_LOGIN_ID = #{chushijingliLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="quxiankuaiji != null">
+				QUXIANKUAIJI = #{quxiankuaiji,jdbcType=VARCHAR},
+			</if>
+			<if test="quxiankuaijiLoginId != null">
+				QUXIANKUAIJI_LOGIN_ID = #{quxiankuaijiLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="bumenfuzongjingli != null">
+				BUMENFUZONGJINGLI = #{bumenfuzongjingli,jdbcType=VARCHAR},
+			</if>
+			<if test="bumenfuzongjingliLoginId != null">
+				BUMENFUZONGJINGLI_LOGIN_ID = #{bumenfuzongjingliLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="bumenzongjingli != null">
+				BUMENZONGJINGLI = #{bumenzongjingli,jdbcType=VARCHAR},
+			</if>
+			<if test="bumenzongjingliLoginId != null">
+				BUMENZONGJINGLI_LOGIN_ID = #{bumenzongjingliLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyehuiqianren != null">
+				ZHUANYEHUIQIANREN = #{zhuanyehuiqianren,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyehuiqianrenLoginId != null">
+				ZHUANYEHUIQIANREN_LOGIN_ID = #{zhuanyehuiqianrenLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyefuzeren != null">
+				ZHUANYEFUZEREN = #{zhuanyefuzeren,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyefuzerenLoginId != null">
+				ZHUANYEFUZEREN_LOGIN_ID = #{zhuanyefuzerenLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyexianzongjingli1 != null">
+				ZHUANYEXIANZONGJINGLI1 = #{zhuanyexianzongjingli1,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyexianzongjingli1LoginId != null">
+				ZHUANYEXIANZONGJINGLI1_LOGIN_ID = #{zhuanyexianzongjingli1LoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyexianzongjingli2 != null">
+				ZHUANYEXIANZONGJINGLI2 = #{zhuanyexianzongjingli2,jdbcType=VARCHAR},
+			</if>
+			<if test="zhuanyexianzongjingli2LoginId != null">
+				ZHUANYEXIANZONGJINGLI2_LOGIN_ID = #{zhuanyexianzongjingli2LoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="shengfenfuzongjingli != null">
+				SHENGFENFUZONGJINGLI = #{shengfenfuzongjingli,jdbcType=VARCHAR},
+			</if>
+			<if test="shengfenfuzongjingliLoginId != null">
+				SHENGFENFUZONGJINGLI_LOGIN_ID = #{shengfenfuzongjingliLoginId,jdbcType=VARCHAR},
+			</if>
+			<if test="shengfenzongjingli != null">
+				SHENGFENZONGJINGLI = #{shengfenzongjingli,jdbcType=VARCHAR},
+			</if>
+			<if test="shengfenzongjingliLoginId != null">
+				SHENGFENZONGJINGLI_LOGIN_ID = #{shengfenzongjingliLoginId,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where INVESTMENT_ID = #{investmentId,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="cn.cgztb.maintaindocument.model.TabMaintainDocumentInvestment">
+		update maintain_document_investment
+		set ENABLE_STATUS = #{enableStatus,jdbcType=CHAR},
+		RESERVED_COLUMN1 = #{reservedColumn1,jdbcType=VARCHAR},
+		RESERVED_COLUMN2 = #{reservedColumn2,jdbcType=VARCHAR},
+		RESERVED_COLUMN3 = #{reservedColumn3,jdbcType=VARCHAR},
+		CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+		MODIFY_DATE = #{modifyDate,jdbcType=TIMESTAMP},
+		CONTRACT_CODE = #{contractCode,jdbcType=VARCHAR},
+		CONTRACT_TYPE = #{contractType,jdbcType=VARCHAR},
+		PROFESSION_TYPE = #{professionType,jdbcType=VARCHAR},
+		DEPARTMENT = #{department,jdbcType=VARCHAR},
+		CHUSHIJINGLI = #{chushijingli,jdbcType=VARCHAR},
+		CHUSHIJINGLI_LOGIN_ID = #{chushijingliLoginId,jdbcType=VARCHAR},
+		QUXIANKUAIJI = #{quxiankuaiji,jdbcType=VARCHAR},
+		QUXIANKUAIJI_LOGIN_ID = #{quxiankuaijiLoginId,jdbcType=VARCHAR},
+		BUMENFUZONGJINGLI = #{bumenfuzongjingli,jdbcType=VARCHAR},
+		BUMENFUZONGJINGLI_LOGIN_ID = #{bumenfuzongjingliLoginId,jdbcType=VARCHAR},
+		BUMENZONGJINGLI =
+		#{bumenzongjingli,jdbcType=VARCHAR},
+		BUMENZONGJINGLI_LOGIN_ID = #{bumenzongjingliLoginId,jdbcType=VARCHAR},
+		ZHUANYEHUIQIANREN = #{zhuanyehuiqianren,jdbcType=VARCHAR},
+		ZHUANYEHUIQIANREN_LOGIN_ID = #{zhuanyehuiqianrenLoginId,jdbcType=VARCHAR},
+		ZHUANYEFUZEREN = #{zhuanyefuzeren,jdbcType=VARCHAR},
+		ZHUANYEFUZEREN_LOGIN_ID = #{zhuanyefuzerenLoginId,jdbcType=VARCHAR},
+		ZHUANYEXIANZONGJINGLI1 = #{zhuanyexianzongjingli1,jdbcType=VARCHAR},
+		ZHUANYEXIANZONGJINGLI1_LOGIN_ID = #{zhuanyexianzongjingli1LoginId,jdbcType=VARCHAR},
+		ZHUANYEXIANZONGJINGLI2 = #{zhuanyexianzongjingli2,jdbcType=VARCHAR},
+		ZHUANYEXIANZONGJINGLI2_LOGIN_ID = #{zhuanyexianzongjingli2LoginId,jdbcType=VARCHAR},
+		SHENGFENFUZONGJINGLI = #{shengfenfuzongjingli,jdbcType=VARCHAR},
+		SHENGFENFUZONGJINGLI_LOGIN_ID = #{shengfenfuzongjingliLoginId,jdbcType=VARCHAR},
+		SHENGFENZONGJINGLI = #{shengfenzongjingli,jdbcType=VARCHAR},
+		SHENGFENZONGJINGLI_LOGIN_ID = #{shengfenzongjingliLoginId,jdbcType=VARCHAR}
+		where INVESTMENT_ID = #{investmentId,jdbcType=BIGINT}
+	</update>
+
+	<!-- custom 2016.08.04 songzx_2326@163.com -->
+	<select id="selectByConditions" resultMap="BaseResultMap" parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from maintain_document_investment
+		<where>
+			ENABLE_STATUS = 1
+			<if test="reservedColumn1 != null">
+				and RESERVED_COLUMN1 = #{reservedColumn1,jdbcType=VARCHAR}
+			</if>
+			<if test="reservedColumn2 != null">
+				and RESERVED_COLUMN2 = #{reservedColumn2,jdbcType=VARCHAR}
+			</if>
+			<if test="reservedColumn3 != null">
+				and RESERVED_COLUMN3 = #{reservedColumn3,jdbcType=VARCHAR}
+			</if>
+			<if test="contractCode != null">
+				and CONTRACT_CODE = #{contractCode,jdbcType=VARCHAR}
+			</if>
+			<if test="department != null">
+				and DEPARTMENT = #{department,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+</mapper>
